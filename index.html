@@ -6,8 +6,45 @@
 <script src="graph.js"></script>
 <link rel="stylesheet" href="graph.css">
 <figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-
-    </p>
+    <script> 
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('container', {
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Fruit Consumption'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    labels: {
+                        overflow: 'justify'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'Value'
+                    }
+                },
+                plotOptions: {
+                    spline: {
+                        lineWidth: 4,
+                        states: {
+                            hover: {
+                                lineWidth: 5
+                            }
+                        },
+                        marker: {
+                            enabled: false
+                        },
+                        pointInterval: 3600000, // one hour
+                        pointStart: Date.UTC(2018, 1, 13, 0, 0, 0)
+                    }
+                },
+                series: [{
+                    name: '',
+                    data: 108177911
+                }
+            });
+        }); </script>
 </figure>
